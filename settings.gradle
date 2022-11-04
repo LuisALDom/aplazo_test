@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Aplazo Test"
 include ':app'
+include ':style'
+include ':provider'
