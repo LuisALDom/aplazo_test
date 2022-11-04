@@ -1,8 +1,74 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id 'com.android.application' version '7.2.1' apply false
-    id 'com.android.library' version '7.2.1' apply false
-    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+buildscript {
+    ext{
+        //project variables
+        compileSdkVersion = 30
+        buildsToolsVersion = "30.0.2"
+        minSdkVersion = 26
+        targetSdkVersion = 30
+        versionCode = 1
+        versionName = "1.0.1.01 - P"
+
+        //core
+        kotlin_version = "1.5.21"
+        gradle_version = '4.1.3'
+        multidex_version = "2.0.1"
+        legacy_support_version = "1.0.0"
+        constraint_layout_version = "2.0.4"
+        material_version = "1.4.0"
+        timber_version = "4.7.1"
+        google_services_version = "4.3.10"
+
+        //viewpager && circleIndicator
+        viewpager2_version = "1.0.0"
+        circleindicator_version = "2.1.4"
+
+        //groupie
+        groupie_version = "2.9.0"
+
+        //viewModel
+        lifecycle_extension_version = "2.3.1"
+
+        //navigation
+        navigation_version = "2.3.5"
+
+        //dependencyInjection
+        koin_version = "2.1.6"
+
+        //imagesLoad
+        glide_version = "4.12.0"
+
+        //retrofit
+        retrofit_version = "2.9.0"
+        okhttp3_version = "4.9.1"
+
+        //lottie
+        lottie_version = "3.6.0"
+
+        //Permission Dexter
+        dexter_version = "6.2.2"
+
+        //Object box
+        objectboxVersion = "2.9.1"
+
+        //test
+        junit_version = "4.13.2"
+        test_runner_version = "1.3.0"
+        test_espresso_version = "3.3.0"
+    }
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven {url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
+        classpath "org.koin:koin-gradle-plugin:$koin_version"
+        classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
+    }
 }
 
 task clean(type: Delete) {
