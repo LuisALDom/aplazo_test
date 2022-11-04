@@ -78,6 +78,9 @@ dependencies {
     //material
     implementation "com.google.android.material:material:$material_version"
 
+    implementation project(':style')
+    implementation project(':provider')
+
     //test
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test:runner:$test_runner_version"
