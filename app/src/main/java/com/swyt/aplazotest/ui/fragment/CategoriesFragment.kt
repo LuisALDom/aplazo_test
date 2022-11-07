@@ -10,9 +10,11 @@ import com.swyt.aplazotest.R
 import com.swyt.aplazotest.actions.CategoriesAction
 import com.swyt.aplazotest.base.BaseFragment
 import com.swyt.aplazotest.databinding.FragmentCategoriesBinding
+import com.swyt.aplazotest.ui.viewholder.CategoryViewHolder
 import com.swyt.aplazotest.viewModel.CategoriesViewModel
 import com.swyt.aplazotest.viewModel.ViewModelFactory
 import com.swyt.provider.model.ListCategoriesResponse
+import com.xwray.groupie.GroupieAdapter
 import org.koin.android.ext.android.inject
 
 class CategoriesFragment : BaseFragment() {
@@ -24,6 +26,9 @@ class CategoriesFragment : BaseFragment() {
     private val viewModel: CategoriesViewModel by navGraphViewModels(R.id.nav_graph) {
         viewModelFactory
     }
+    private val categoryAdapter: GroupieAdapter by lazy {
+        GroupieAdapter()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +39,12 @@ class CategoriesFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showProgressBar()
+        setUpRecycler()
         setUpObservable()
+    }
+
+    private fun setUpRecycler() {
+        binding.rvCategories.adapter = categoryAdapter
     }
 
     private fun setUpObservable() {
@@ -49,8 +59,13 @@ class CategoriesFragment : BaseFragment() {
     }
 
     private fun handlerCategories(data: ListCategoriesResponse) {
-        Log.d("LADB","data....> ${data.categories}")
         hideProgressBar()
+        categoryAdapter.clear()
+        categoryAdapter.addAll(data.categories.map { category ->
+           CategoryViewHolder(category) { selected ->
+               toast(category.nameCategory.toString())
+           }
+        })
     }
 
     private fun handlerError(message: String) {
