@@ -8,7 +8,9 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/fragment_categories.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/fragment_meals.xml" value="0.321875" />
         <entry key="app/src/main/res/layout/layout_item_category.xml" value="0.321875" />
+        <entry key="app/src/main/res/layout/layout_item_meal.xml" value="0.321875" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.32395833333333335" />
         <entry key="style/src/main/res/drawable/ic_launcher_background_engineer.xml" value="0.1535" />
         <entry key="style/src/main/res/drawable/ic_search.xml" value="0.1535" />

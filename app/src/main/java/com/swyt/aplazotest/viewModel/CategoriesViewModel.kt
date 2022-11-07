@@ -39,4 +39,8 @@ class CategoriesViewModel(
             }
         }
     }
+
+    fun resetVM() {
+        _listCategories.value = CategoriesAction.init
+    }
 }

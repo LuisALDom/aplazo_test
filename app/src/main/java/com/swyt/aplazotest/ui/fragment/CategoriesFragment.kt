@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.swyt.aplazotest.R
 import com.swyt.aplazotest.actions.CategoriesAction
@@ -23,12 +25,8 @@ class CategoriesFragment : BaseFragment() {
         FragmentCategoriesBinding.inflate(LayoutInflater.from(context), null, false)
     }
     private val viewModelFactory: ViewModelFactory by inject()
-    private val viewModel: CategoriesViewModel by navGraphViewModels(R.id.nav_graph) {
-        viewModelFactory
-    }
-    private val categoryAdapter: GroupieAdapter by lazy {
-        GroupieAdapter()
-    }
+    private val viewModel: CategoriesViewModel by navGraphViewModels(R.id.nav_graph) { viewModelFactory }
+    private val categoryAdapter: GroupieAdapter by lazy { GroupieAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,7 +61,8 @@ class CategoriesFragment : BaseFragment() {
         categoryAdapter.clear()
         categoryAdapter.addAll(data.categories.map { category ->
            CategoryViewHolder(category) { selected ->
-               toast(category.nameCategory.toString())
+               showProgressBar()
+               findNavController().navigate(R.id.MealsFragment, bundleOf(Pair("category", selected)))
            }
         })
     }

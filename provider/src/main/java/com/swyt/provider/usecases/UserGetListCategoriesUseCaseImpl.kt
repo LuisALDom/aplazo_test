@@ -20,7 +20,7 @@ internal class UserGetListCategoriesUseCaseImpl(private val getListCategoriesSer
             }
         } catch (exception: Exception) {
             exception.printStackTrace()
-            com.swyt.provider.actions.Result.Failure("Sin datos en Categorias")
+            Result.Failure("Sin datos en Categorias")
         }
     }
 }
