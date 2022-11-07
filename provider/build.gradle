@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -13,13 +15,19 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-        buildConfigField "String", "BASE_URL", '"http://www.themealdb.com/"'
     }
 
     buildTypes {
+        debug{
+            minifyEnabled false
+            debuggable true
+            buildConfigField "String", "BASE_URL", '"http://www.themealdb.com/"'
+        }
         release {
             minifyEnabled false
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"http://www.themealdb.com/"'
         }
     }
     compileOptions {

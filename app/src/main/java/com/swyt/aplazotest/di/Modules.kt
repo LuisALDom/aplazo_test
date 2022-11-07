@@ -1,9 +1,10 @@
 package com.swyt.aplazotest.di
 
 import android.app.Application
-import com.swyt.aplazotest.viewModel.MainViewModel
+import com.swyt.aplazotest.viewModel.CategoriesViewModel
 import com.swyt.aplazotest.viewModel.ViewModelFactory
-import com.swyt.provider.di.providerModules
+import com.swyt.provider.di.providerServicesModules
+import com.swyt.provider.di.providerUseCaseModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -21,7 +22,8 @@ object Modules {
             koin.loadModules(
                 arrayListOf(
                     appModules,
-                    providerModules
+                    providerServicesModules,
+                    providerUseCaseModel
                 )
             )
             koin.createRootScope()
@@ -29,8 +31,9 @@ object Modules {
     }
 
     private val appModules = module {
-        viewModel { MainViewModel(get()) }
-        factory { ViewModelFactory(get()) }
+        viewModel { CategoriesViewModel(get(), get()) }
+
+        factory { ViewModelFactory(get(), get()) }
     }
 
 }

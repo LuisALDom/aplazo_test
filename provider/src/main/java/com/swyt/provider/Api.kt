@@ -5,7 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object Api {
+object API {
 
     private val okHttpClientInterceptorRequest by lazy {
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
