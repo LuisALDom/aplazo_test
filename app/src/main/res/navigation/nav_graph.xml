@@ -8,8 +8,23 @@
     <fragment
         android:id="@+id/CategoriesFragment"
         android:name="com.swyt.aplazotest.ui.fragment.CategoriesFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/categories_fragment_label"
         tools:layout="@layout/fragment_categories">
+        <action
+            android:id="@+id/action_CategoriesFragment_to_MealsFragment"
+            app:destination="@id/MealsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/MealsFragment"
+        android:name="com.swyt.aplazotest.ui.fragment.MealsFragment"
+        android:label="@string/meals_fragment_label"
+        tools:layout="@layout/fragment_meals">
+        <argument
+            android:name="category"
+            android:defaultValue="@null"
+            app:nullable="true"
+            app:argType="com.swyt.provider.model.Category" />
     </fragment>
 
 </navigation>
