@@ -2,6 +2,7 @@ package com.swyt.aplazotest.di
 
 import android.app.Application
 import com.swyt.aplazotest.viewModel.CategoriesViewModel
+import com.swyt.aplazotest.viewModel.DetailMealViewModel
 import com.swyt.aplazotest.viewModel.MealsViewModel
 import com.swyt.aplazotest.viewModel.ViewModelFactory
 import com.swyt.provider.di.providerServicesModules
@@ -32,10 +33,11 @@ object Modules {
     }
 
     private val appModules = module {
-        viewModel { CategoriesViewModel(get(), get()) }
+        viewModel { CategoriesViewModel(get(), get(), get(), get()) }
         viewModel { MealsViewModel(get(), get()) }
+        viewModel { DetailMealViewModel(get(), get()) }
 
-        factory { ViewModelFactory(get(), get(), get()) }
+        factory { ViewModelFactory(get(), get(), get(), get(), get(), get()) }
     }
 
 }

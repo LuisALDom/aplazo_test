@@ -23,8 +23,23 @@
         <argument
             android:name="category"
             android:defaultValue="@null"
-            app:nullable="true"
-            app:argType="com.swyt.provider.model.Category" />
+            app:argType="com.swyt.provider.model.Category"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_MealsFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/DetailFragment"
+        android:name="com.swyt.aplazotest.ui.fragment.DetailMealFragment"
+        android:label="@string/detail_fragment_label"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="detail"
+            android:defaultValue="@null"
+            app:argType="com.swyt.provider.model.Meal"
+            app:nullable="true" />
     </fragment>
 
 </navigation>
