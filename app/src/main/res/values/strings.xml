@@ -4,6 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="categories_fragment_label">Categories Fragment</string>
     <string name="meals_fragment_label">Meals Fragment</string>
+    <string name="detail_fragment_label">Detail Fragment</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/zero_dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@id/gl_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_meal"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/eight_dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_detail"
+        tools:text="@string/categories" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_instructions"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/sixteen_sp"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:textSize="@dimen/sixteen_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_meal"
+        tools:text="@string/description" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_youtube"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/sixteen_sp"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:textColorLink="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_instructions"
+        tools:text="@string/link_youtube" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_source"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/sixteen_sp"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:textColorLink="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_youtube"
+        tools:text="@string/link_source" />
+</androidx.constraintlayout.widget.ConstraintLayout>

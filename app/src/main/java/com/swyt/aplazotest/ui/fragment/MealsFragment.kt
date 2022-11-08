@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navGraphViewModels
@@ -37,7 +38,6 @@ class MealsFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("LADB","------>>>>> $args")
         viewModel.getListMeals(args.category?.nameCategory!!)
         setUpRecycler()
         setUpObservable()
@@ -61,7 +61,8 @@ class MealsFragment : BaseFragment() {
         mealAdapter.clear()
         mealAdapter.addAll(data.meals.map { meal ->
             MealViewHolder(meal) { selected ->
-                Log.d("LADB", "-----<><<<<<<<<<<>>><>> $meal")
+                showProgressBar()
+                findNavController().navigate(R.id.DetailFragment, bundleOf(Pair("detail", selected)))
             }
         })
     }

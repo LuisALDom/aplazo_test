@@ -1,7 +1,6 @@
 package com.swyt.provider.usecases
 
 import com.swyt.provider.actions.Result
-import com.swyt.provider.model.ListCategoriesResponse
 import com.swyt.provider.model.ListMealsResponse
 import com.swyt.provider.services.GetListMealsServices
 
@@ -14,14 +13,14 @@ internal class UserGetListMealsUseCaseImpl(private val getListMealsServices: Get
                 response.body()?.let {
                     Result.Success<ListMealsResponse>(value = it)
                 } ?: run {
-                    Result.Failure("Sin datos en Categorias")
+                    Result.Failure("Sin datos en Comidas")
                 }
             } else {
-                Result.Failure("Sin datos en Categorias")
+                Result.Failure("Sin datos en Comidas")
             }
         } catch (exception: Exception) {
             exception.printStackTrace()
-            Result.Failure("Sin datos en Categorias")
+            Result.Failure("Sin datos en Comidas")
         }
     }
 
