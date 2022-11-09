@@ -36,7 +36,4 @@ class DetailMealViewModel(
         }
     }
 
-    fun resetVM() {
-        _detailMeal.value = DetailMealAction.init
-    }
 }

@@ -5,54 +5,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_meals"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srl_meals"
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero_dp"
         android:layout_marginHorizontal="@dimen/five_dp"
-        android:layout_marginTop="@dimen/five_dp"
-        app:cardCornerRadius="@dimen/ten_dp"
+        android:layout_marginTop="@dimen/ten_dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_meals"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="@dimen/zero_dp"
+            android:layout_marginHorizontal="@dimen/five_dp"
+            android:layout_marginTop="@dimen/five_dp"
+            app:cardCornerRadius="@dimen/ten_dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/c_meals"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/blue"
-                android:padding="@dimen/ten_dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_section"
-                    style="@style/title_white"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/c_meals"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/meals"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="@color/blue"
+                    android:padding="@dimen/ten_dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
 
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_section"
+                        style="@style/title_white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/meals"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_meals"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/zero_dp"
+                    android:nestedScrollingEnabled="true"
+                    android:visibility="visible"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/c_meals"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/layout_item_meal" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_meals"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/zero_dp"
-                android:nestedScrollingEnabled="true"
-                android:visibility="visible"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/c_meals"
-                tools:itemCount="4"
-                tools:listitem="@layout/layout_item_meal" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
+        </androidx.cardview.widget.CardView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

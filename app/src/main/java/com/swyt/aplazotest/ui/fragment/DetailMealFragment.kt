@@ -39,7 +39,6 @@ class DetailMealFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("LADB","------>>>>> $args")
         viewModel.getDetailMeal(args.detail?.idMeal!!)
         setUpObservable()
     }
@@ -73,6 +72,7 @@ class DetailMealFragment : BaseFragment() {
             }
         }
         hideProgressBar()
+        viewModel.detailMeal.removeObservers(viewLifecycleOwner)
     }
 
     private fun handlerError(message: String) {
