@@ -12,6 +12,7 @@ import com.swyt.aplazotest.base.BaseApplicationViewModel
 import com.swyt.provider.usecases.UserGetListCategoriesUseCase
 import com.swyt.provider.usecases.UserGetRandomMealUseCase
 import com.swyt.provider.usecases.UserGetSearchMealUseCase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CategoriesViewModel(
@@ -21,9 +22,6 @@ class CategoriesViewModel(
     private val getRandomMealUseCase: UserGetRandomMealUseCase
 ) : BaseApplicationViewModel(app) {
 
-    init {
-        getListCategories()
-    }
 
     //Consume Service Categories on ViewModel
     private val _listCategories: MutableLiveData<CategoriesAction> by lazy {
@@ -76,7 +74,7 @@ class CategoriesViewModel(
     val randomMeal: LiveData<RandomMealAction> get() = _randomMeal
 
     fun randomMeal() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             when(val result = getRandomMealUseCase()) {
                 is Result.Success -> {
                     _randomMeal.postValue(RandomMealAction.RandomMealData(data = result.value))
@@ -85,14 +83,9 @@ class CategoriesViewModel(
                     _randomMeal.postValue(RandomMealAction.Error(message = result.error))
                 }
             }
+            Thread.sleep(7000)
+            randomMeal()
         }
     }
 
-    fun resetCategoriesVM() {
-        _listCategories.value = CategoriesAction.init
-    }
-
-    fun resetSearchVM() {
-        _searchMeal.value = SearchMealAction.init
-    }
 }

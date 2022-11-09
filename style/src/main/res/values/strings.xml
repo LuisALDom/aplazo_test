@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="query_hint">Buscar por Nombre</string>
+    <string name="query_hint">Buscar por Letra</string>
     <string name="title_category">Categoría:</string>
     <string name="title_description">Descripción</string>
     <string name="category">Beef</string>
     <string name="description">Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistoric times.[1] Beef is a source of high-quality protein and essential nutrients.[2]</string>
     <string name="info_search_meal">Busca cualquier comida con la ayuda de nuestra barra de búsqueda.</string>
+    <string name="not_find_result">Sin resultados encontrados</string>
     <string name="link_youtube">https://www.youtube.com/watch?v=3lxUIeKDgic</string>
     <string name="link_source">https://www.recipetineats.com/chicken-sharwama-middle-eastern/</string>
     <string name="categories">Categorías</string>
     <string name="meals">Comidas</string>
+    <string name="no_data">----</string>
 
 </resources>

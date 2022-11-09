@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_CategoriesFragment_to_MealsFragment"
             app:destination="@id/MealsFragment" />
+        <action
+            android:id="@+id/action_CategoriesFragment_to_DetailSearchFragment"
+            app:destination="@id/DetailSearchFragment" />
     </fragment>
 
     <fragment
@@ -39,6 +42,18 @@
             android:name="detail"
             android:defaultValue="@null"
             app:argType="com.swyt.provider.model.Meal"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/DetailSearchFragment"
+        android:name="com.swyt.aplazotest.ui.fragment.DetailMealSearchFragment"
+        android:label="@string/detail_search_fragment_label"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="detailSearch"
+            android:defaultValue="@null"
+            app:argType="com.swyt.provider.model.DetailMeal"
             app:nullable="true" />
     </fragment>
 

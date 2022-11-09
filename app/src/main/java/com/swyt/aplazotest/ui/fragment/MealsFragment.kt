@@ -39,8 +39,21 @@ class MealsFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getListMeals(args.category?.nameCategory!!)
+        setUpOnRefresh()
         setUpRecycler()
         setUpObservable()
+    }
+
+    private fun setUpOnRefresh() {
+        binding.apply {
+            srlMeals.apply {
+                setColorSchemeColors(requireContext().getColor(R.color.blue))
+                setOnRefreshListener {
+                    viewModel.getListMeals(args.category?.nameCategory!!)
+                    isRefreshing = false
+                }
+            }
+        }
     }
 
     private fun setUpRecycler() {
@@ -58,6 +71,7 @@ class MealsFragment : BaseFragment() {
 
     private fun handlerMeals(data: ListMealsResponse) {
         hideProgressBar()
+        viewModel.listMeals.removeObservers(viewLifecycleOwner)
         mealAdapter.clear()
         mealAdapter.addAll(data.meals.map { meal ->
             MealViewHolder(meal) { selected ->

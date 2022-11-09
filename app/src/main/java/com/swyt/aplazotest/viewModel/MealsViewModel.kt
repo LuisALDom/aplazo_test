@@ -36,7 +36,4 @@ class MealsViewModel(
         }
     }
 
-    fun resetVM() {
-        _listMeals.value = MealsAction.init
-    }
 }
